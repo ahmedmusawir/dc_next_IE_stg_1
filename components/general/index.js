@@ -28,3 +28,4 @@ export * from './Small';
 export * from './Video';
 export * from './Slider';
 export * from './ModalForm';
+export * from './Collapse';

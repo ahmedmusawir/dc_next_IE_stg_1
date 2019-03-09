@@ -8,6 +8,7 @@ import {
 	Paragraph,
 	SectionBackground,
 	Slider,
+	Collapse,
 } from 'components/general';
 // import AtvImg from 'react-img-atv';
 
@@ -36,6 +37,23 @@ class TestPage extends React.Component {
 									className={'thisIsOptional'}
 									style={{ width: '90%', height: '90%' }}
 								/> */}
+							</Block>
+						</Section>
+					</PageContainer>
+				</SectionBackground>
+				{/* TEST CAROUSEL SECTION */}
+				<SectionBackground bgColor="lightblue">
+					<PageContainer>
+						<Section>
+							<Block flexBasis="50" className="text-center">
+								<Paragraph>
+									<H1 light>TESTNG COLLAPSE</H1>
+								</Paragraph>
+							</Block>
+							<Block flexBasis="50" className="text-center">
+								<Paragraph>
+									<Collapse />
+								</Paragraph>
 							</Block>
 						</Section>
 					</PageContainer>

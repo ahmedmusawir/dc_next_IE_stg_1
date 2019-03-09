@@ -14,6 +14,8 @@ import {
 	DropdownToggle,
 	DropdownMenu,
 	DropdownItem,
+	CardBody,
+	Card,
 } from 'reactstrap';
 
 import { H6, A, Img, Div, Small, Button, ModalForm } from 'components/general';
@@ -21,6 +23,8 @@ import ActiveLink from 'components/navigation/ActiveLink';
 
 const MainNavbar = styled(Navbar)`
 	background: white;
+	height: 70px;
+	border-bottom: 1px solid #e3e3e3;
 
 	@media (max-width: 768px) {
 		justify-content: flex-start;
@@ -37,39 +41,7 @@ const MainNavbar = styled(Navbar)`
 	@media (max-width: 330px) {
 		justify-content: flex-start;
 		.navbar-toggler {
-			margin-right: .1rem !important;
-		}
-	}
-
-	.navbar-collapse {
-		height: 100vh;
-		width: 100vw;
-	}
-
-	.navbar-toggler {
-			background: white;
-			padding: 0.5rem;
-			outline: none;
-		}
-	}
-
-	.nav-item {
-		border-bottom: 1px solid grey;
-		padding: 1.5rem;
-		font-size: 1rem;
-		text-align: center;
-
-		a {
-			color: grey !important;
-		}
-	}
-
-	.dropdown-item {
-		padding: 1.25rem 1.5rem;
-
-		.nav-item {
-			border-bottom: none;
-			padding: 0;
+			margin-right: 0.1rem !important;
 		}
 	}
 
@@ -77,7 +49,7 @@ const MainNavbar = styled(Navbar)`
 		.active {
 			color: dodgerblue !important;
 		}
-		
+
 		.lang-links {
 			margin-top: 0.5rem;
 
@@ -89,16 +61,16 @@ const MainNavbar = styled(Navbar)`
 			margin-top: 1rem;
 
 			.address {
-				margin-top: .5rem;
+				margin-top: 0.5rem;
 			}
 		}
 		.buttons {
-			margin-top: .5rem;
+			margin-top: 0.5rem;
 			.btn {
-        width: 150px;
-				margin-right: .5rem;
+				width: 150px;
+				margin-right: 0.5rem;
 				background-color: transparent;
-				color: #A8A8A8;
+				color: #a8a8a8;
 				font-weight: 300;
 				border-radius: 0;
 			}
@@ -116,20 +88,37 @@ const DCLogo = styled.div`
 		margin-top: -5px;
 	}
 `;
+
+const CollapseContainer = styled.div`
+	position: relative;
+	.nav-box {
+		z-index: 1000;
+		position: fixed;
+		background: transparent;
+		line-height: 2rem;
+		transition: width 0.5s;
+
+		.card {
+			width: 50%;
+			height: 100vh;
+			background: white;
+			overflow: hidden;
+			@media (max-width: 500px) {
+				width: 90%;
+			}
+		}
+	}
+`;
+
 export class MobileNav extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.toggle = this.toggle.bind(this);
-		this.state = {
-			isOpen: false,
-		};
+		this.state = { collapse: false };
 	}
 
 	toggle() {
-		this.setState({
-			isOpen: !this.state.isOpen,
-		});
+		this.setState(state => ({ collapse: !state.collapse }));
 	}
 
 	render() {
@@ -140,7 +129,7 @@ export class MobileNav extends React.Component {
 			router.asPath.split('/')[1] === 'product';
 
 		return (
-			<div className="d-block d-lg-none">
+			<div className="d-block d-lg-none" style={{ background: 'transparent' }}>
 				<MainNavbar light className="fixed-top">
 					<NavbarToggler
 						aria-label="mobile navigation toggle button"
@@ -158,112 +147,112 @@ export class MobileNav extends React.Component {
 							</DCLogo>
 						</NavbarBrand>
 					</Link>
+				</MainNavbar>
+				<CollapseContainer>
+					<nav
+						className="nav-box"
+						style={{ width: this.state.collapse ? '100%' : '0px' }}
+					>
+						<Card>
+							<CardBody>
+								<p>List Based</p>
+								<Nav vertical>
+									<ActiveLink href="/">Home</ActiveLink>
 
-					<Collapse isOpen={this.state.isOpen} navbar>
-						<Nav className="ml-auto" navbar>
-							<ActiveLink href="/">Home</ActiveLink>
+									<UncontrolledDropdown nav inNavbar>
+										<DropdownToggle
+											nav
+											caret
+											className={
+												isCurrentPath ? 'nav-link active-nav-item' : 'nav-link'
+											}
+										>
+											Product
+										</DropdownToggle>
+										<DropdownMenu right>
+											<DropdownItem>
+												<ActiveLink href="/product/data-integration">
+													Data Integration
+												</ActiveLink>
+											</DropdownItem>
+											<DropdownItem>
+												<ActiveLink href="/product/field-evaluation">
+													Field Evaluation
+												</ActiveLink>
+											</DropdownItem>
+											<DropdownItem>
+												<ActiveLink href="/product/field-development">
+													Field Development
+												</ActiveLink>
+											</DropdownItem>
+										</DropdownMenu>
+									</UncontrolledDropdown>
 
-							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle
-									nav
-									caret
-									className={
-										isCurrentPath ? 'nav-link active-nav-item' : 'nav-link'
-									}
-								>
-									Product
-								</DropdownToggle>
-								<DropdownMenu right>
-									<DropdownItem>
-										<ActiveLink href="/product/data-integration">
-											Data Integration
-										</ActiveLink>
-									</DropdownItem>
-									<DropdownItem>
-										<ActiveLink href="/product/field-evaluation">
-											Field Evaluation
-										</ActiveLink>
-									</DropdownItem>
-									<DropdownItem>
-										<ActiveLink href="/product/field-development">
-											Field Development
-										</ActiveLink>
-									</DropdownItem>
-								</DropdownMenu>
-							</UncontrolledDropdown>
+									<ActiveLink href="/media">Media</ActiveLink>
 
-							<ActiveLink href="/media">Media</ActiveLink>
+									<ActiveLink href="/about">About</ActiveLink>
+								</Nav>
+								<Div className="mobile-nav-contact-box">
+									<Div className="lang-links">
+										<Link prefetch href="/" passHref>
+											<A className="active">EN</A>
+										</Link>
+										<Link prefetch href="/" passHref>
+											<A className="">ES</A>
+										</Link>
+									</Div>
+									<Div className="text">
+										<H6 fontWeight="400">
+											<Small>CONTACT</Small>
+										</H6>
+										<H6>
+											<A
+												className="px-2"
+												data-auto-recognition="true"
+												data-content="info@deepcast.ai"
+												href="mailto:info@deepcast.ai"
+												data-type="mail"
+											>
+												<Small>*info@deepcast.ai</Small>
+											</A>
 
-							<ActiveLink href="/about">About</ActiveLink>
+											<br />
+											<A
+												className="px-2"
+												href="tel:18324313292"
+												data-content="18324313292"
+												data-type="phone"
+											>
+												<Small>*(832)431-3292</Small>
+											</A>
+										</H6>
 
-							{/* <NavItem>
-								<Link prefetch href="/sendgrid" passHref>
-									<NavLink>SendGrid</NavLink>
-								</Link>
-							</NavItem>
-							<NavItem>
-								<Link prefetch href="/test" passHref>
-									<NavLink>Test Page</NavLink>
-								</Link>
-							</NavItem> */}
-						</Nav>
-						<Div className="mobile-nav-contact-box">
-							<Div className="lang-links">
-								<Link prefetch href="/" passHref>
-									<A className="active">EN</A>
-								</Link>
-								<Link prefetch href="/" passHref>
-									<A className="">ES</A>
-								</Link>
-							</Div>
-							<Div className="text">
-								<H6 fontWeight="400">
-									<Small>CONTACT</Small>
-								</H6>
-								<H6>
-									<A
-										className="px-2"
-										data-auto-recognition="true"
-										data-content="info@deepcast.ai"
-										href="mailto:info@deepcast.ai"
-										data-type="mail"
-									>
-										<Small>*info@deepcast.ai</Small>
-									</A>
-
-									<br />
-									<A
-										className="px-2"
-										href="tel:18324313292"
-										data-content="18324313292"
-										data-type="phone"
-									>
-										<Small>*(832)431-3292</Small>
-									</A>
-								</H6>
-
-								{/* <H6>
+										{/* <H6>
 									<Small>*info@deepcast.ai</Small>
 									<br />
 									<Small>*(832)431-3292</Small>
 								</H6> */}
 
-								<H6 className="address">
-									<Small>
-										800 Town and Country Blvd #300, <br />
-										Houston, TX 77024
-									</Small>
-								</H6>
-							</Div>
-							<Div className="buttons">
-								<ModalForm buttonLabel="Request Demo">Request Demo</ModalForm>
-								<Link prefetch href="/" passHref>
-									<Button className="btn pl-5 pr-5 mt-2">Login</Button>
-								</Link>
-							</Div>
-						</Div>
-					</Collapse>
-				</MainNavbar>
+										<H6 className="address">
+											<Small>
+												800 Town and Country Blvd #300, <br />
+												Houston, TX 77024
+											</Small>
+										</H6>
+									</Div>
+									<Div className="buttons">
+										<ModalForm buttonLabel="Request Demo">
+											Request Demo
+										</ModalForm>
+										<Link prefetch href="/" passHref>
+											<Button className="btn pl-5 pr-5 mt-2">Login</Button>
+										</Link>
+									</Div>
+								</Div>
+							</CardBody>
+						</Card>
+					</nav>
+				</CollapseContainer>
 			</div>
 		);
 	}
