@@ -17,8 +17,11 @@ const coreTeamData = [
 		imgSrc: '/static/images/_about/_members/hector-klie.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/hklie/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus1',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd1',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield1',
 	},
 	{
 		id: 2,
@@ -27,8 +30,11 @@ const coreTeamData = [
 		imgSrc: '/static/images/_about/_members/arturo-klie.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/klieart/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus2',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd2',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield2',
 	},
 	{
 		id: 3,
@@ -37,8 +43,11 @@ const coreTeamData = [
 		imgSrc: '/static/images/_about/_members/duc-le.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/duchuule/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus3',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd3',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield3',
 	},
 	{
 		id: 4,
@@ -47,8 +56,11 @@ const coreTeamData = [
 		imgSrc: '/static/images/_about/_members/duc-vuong.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/duc-vuong/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus4',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd4',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield4',
 	},
 	{
 		id: 5,
@@ -57,8 +69,11 @@ const coreTeamData = [
 		imgSrc: '/static/images/_about/_members/wei-ma.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/wei-ma-1b01b541/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus5',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd5',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield5',
 	},
 ];
 
@@ -70,8 +85,11 @@ const advisorTeamData = [
 		imgSrc: '/static/images/_about/_members/yves.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/yves-m-r-chevalier-1b915451/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus6',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd6',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield6',
 	},
 	{
 		id: 2,
@@ -80,8 +98,11 @@ const advisorTeamData = [
 		imgSrc: '/static/images/_about/_members/tan.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/tan-nguyen-031b8596/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus7',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd7',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield7',
 	},
 	{
 		id: 3,
@@ -90,8 +111,11 @@ const advisorTeamData = [
 		imgSrc: '/static/images/_about/_members/reinaldo.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/gonzalezreinaldo/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus8',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd8',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield8',
 	},
 	{
 		id: 4,
@@ -100,8 +124,11 @@ const advisorTeamData = [
 		imgSrc: '/static/images/_about/_members/horacio.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/horacio-florez-87b37b24/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus9',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd9',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield9',
 	},
 	{
 		id: 5,
@@ -110,8 +137,11 @@ const advisorTeamData = [
 		imgSrc: '/static/images/_about/_members/fetkovich.jpg',
 		linkedinUrl: 'https://www.linkedin.com/in/mick-fetkovich-90013235/',
 		thirtyPlusIconTooltip: '30 years of experience',
-		phpIconTooltip: 'Doctoral degree',
+		thirtyPlusIconId: 'plus10',
+		phdIconTooltip: 'Doctoral degree',
+		phdIconId: 'phd10',
 		shieldIconTooltip: 'This is A shield',
+		shieldIconId: 'shield10',
 	},
 ];
 
@@ -175,7 +205,7 @@ class AboutPage extends React.Component {
 			>
 				{/* TEAM HERO SLIDER BLOCK */}
 				<AboutHeroSection
-					title="About Hero Title"
+					title="More than 30 years of shared experience for the best results"
 					para1="Our results are reflected on our customers opinions Lorem
 				ipsum dolor sit amet consectetur adipisicing elit. Quam
 				expedita facilis similique sapiente veritatis exercitationem

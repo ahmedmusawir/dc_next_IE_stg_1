@@ -81,8 +81,8 @@ class FieldDevelopmentPage extends Component {
 			>
 				{/* TOP HERO SECTION */}
 				<FieldDevHeroSection
-					title="Field Dev Hero Title"
-					subtitle="field dev hero subtitle"
+					title="Discover The Best Development Strategy"
+					subtitle="Some long subtitle text goes here. It would be a tagline that describes the value of the software. That describes the value of the software"
 					bgImgSrc="/static/images/_field-development/field-dev-header.jpg"
 				/>
 

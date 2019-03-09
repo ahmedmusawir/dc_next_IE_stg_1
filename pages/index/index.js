@@ -95,8 +95,8 @@ class HomePage extends React.Component {
 				{/* HOME HERO SECTION */}
 				<HomeHeroSection
 					bgImgSrc="/static/images/_home/home-hero-1600.jpg"
-					title="Home Hero Title"
-					subtitle="Home hero subtitle"
+					title="STREAMLINE YOUR OPERATION"
+					subtitle="To help the industrial sector thrive through the application of data-driven processes and cutting-edge AI application"
 				/>
 
 				{/* VIDEO SECTION */}

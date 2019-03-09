@@ -100,8 +100,9 @@ export class TeamMemberSection extends Component {
 		const { title, teamData } = this.props;
 
 		let teamDataOutput = teamData.map(data => {
+			console.log(data.thirtyPlusIconId);
 			return (
-				<Block flexBasis="20">
+				<Block flexBasis="20" key={data.id}>
 					<Paragraph className="text-center member">
 						<Card imgSrc={data.imgSrc} padding="0">
 							<LinkedInBox href={data.linkedinUrl} target="_blank">
@@ -123,28 +124,37 @@ export class TeamMemberSection extends Component {
 										src="/static/images/_about/30plus-icon.jpg"
 										alt=""
 										className="about-icon float-left"
-										id="plus1"
+										id={data.thirtyPlusIconId}
 									/>
-									<UncontrolledTooltip placement="bottom" target="plus1">
+									<UncontrolledTooltip
+										placement="bottom"
+										target={data.thirtyPlusIconId}
+									>
 										{data.thirtyPlusIconTooltip}
 									</UncontrolledTooltip>
 									<img
 										src="/static/images/_about/phd-icon.jpg"
 										alt=""
 										className="about-icon float-left"
-										id="phd1"
+										id={data.phdIconId}
 									/>
 
-									<UncontrolledTooltip placement="bottom" target="phd1">
-										{data.phpIconTooltip}
+									<UncontrolledTooltip
+										placement="bottom"
+										target={data.phdIconId}
+									>
+										{data.phdIconTooltip}
 									</UncontrolledTooltip>
 									<img
 										src="/static/images/_about/shield-icon.jpg"
 										alt=""
 										className="about-icon float-left"
-										id="shield1"
+										id={data.shieldIconId}
 									/>
-									<UncontrolledTooltip placement="bottom" target="shield1">
+									<UncontrolledTooltip
+										placement="bottom"
+										target={data.shieldIconId}
+									>
 										{data.shieldIconTooltip}
 									</UncontrolledTooltip>
 								</Div>

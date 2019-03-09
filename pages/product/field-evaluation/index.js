@@ -81,8 +81,8 @@ class FieldEvaluationPage extends Component {
 			>
 				{/* TOP HERO SECTION */}
 				<FieldEvalHeroSection
-					title="Field Eval Title"
-					subtitle="Field eval subtitle"
+					title="Expedite Field Analysis by 100x"
+					subtitle="Some long subtitle text goes here. It would be a tagline that describes the value of the software. That describes the value of the software"
 					bgImgSrc="/static/images/_field-evaluation/field-eval-header.jpg"
 				/>
 

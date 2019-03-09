@@ -38,7 +38,8 @@ const GlobalStyle = createGlobalStyle`
     // GLOBAL DESKTOP SUBNAV & MODAL STYLES
     @media (min-width: 992px) {
       .modal {
-        left: 310px !important;
+        // left: 310px !important;
+        left: 0px !important;
       }
       .modal-backdrop {
         position: fixed;

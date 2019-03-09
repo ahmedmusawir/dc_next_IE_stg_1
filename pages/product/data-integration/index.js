@@ -47,12 +47,6 @@ const sliderItems = [
 ];
 
 class DataIntegrationPage extends Component {
-	static async getInitialProps() {
-		return {
-			namespacesRequired: ['data-integration-page'],
-		};
-	}
-
 	render() {
 		return (
 			<Layout
@@ -61,8 +55,8 @@ class DataIntegrationPage extends Component {
 			>
 				{/* TOP HERO SECTION */}
 				<DataIntegHeroSection
-					title="Data Integration Hero Title"
-					subtitle="Data integration hero title"
+					title="Greater Collaboration Across Roles"
+					subtitle="Some long subtitle text goes here. It would be a tagline that describes the value of the software. That describes the value of the software"
 					bgImgSrc="/static/images/_data-integration/data-integration-header.jpg"
 				/>
 
